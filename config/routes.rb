@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       mount_devise_token_auth_for 'Teacher', at: 'auth'
     end
     namespace :v1 do
-      resources :teachers
+      get 'teachers', to: "teachers#teacher_index"
     end
   end
 end
