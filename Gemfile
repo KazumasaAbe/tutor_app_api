@@ -11,6 +11,7 @@ gem 'rack-cors'
 gem 'devise'
 gem 'devise_token_auth'
 gem 'devise-i18n',        '1.9.4'
+gem 'bcrypt', '~> 3.1', '>= 3.1.12'
 
 
 group :development, :test do

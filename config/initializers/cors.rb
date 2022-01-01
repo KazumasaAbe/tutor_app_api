@@ -7,18 +7,11 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
    allow do
-<<<<<<< HEAD
-    origins ENV["API_DOMAIN"] || ""
-
-    resource '*',
-      headers: :any,
-       methods: [:get, :post, :put, :patch, :delete, :options, :head]
-=======
      origins ENV["API_DOMAIN"] || "localhost:8080"
 
      resource '*',
        headers: :any,
+       expose: ['access-token', 'uid', 'client', 'token-type'],
        cmethods: [:get, :post, :put, :patch, :delete, :options, :head]
->>>>>>> 531a2c7a894450d4a365c214ad9ef8e2ed66af09
   end
 end
