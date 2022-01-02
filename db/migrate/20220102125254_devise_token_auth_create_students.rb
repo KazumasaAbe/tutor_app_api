@@ -1,7 +1,7 @@
-class DeviseTokenAuthCreateTeachers < ActiveRecord::Migration[6.0]
+class DeviseTokenAuthCreateStudents < ActiveRecord::Migration[6.0]
   def change
     
-    create_table(:teachers) do |t|
+    create_table(:students) do |t|
       ## Required
       t.string :provider, :null => false, :default => "email"
       t.string :uid, :null => false, :default => ""
@@ -34,22 +34,16 @@ class DeviseTokenAuthCreateTeachers < ActiveRecord::Migration[6.0]
       t.string :image
       t.string :email
 
-      t.boolean :admin
-      t.boolean :teacher
-      t.string :introduction
-      t.string :teacher_icon
-      t.integer :student_id
-
       ## Tokens
       t.json :tokens
 
       t.timestamps
     end
 
-    add_index :teachers, :email,                unique: true
-    add_index :teachers, [:uid, :provider],     unique: true
-    add_index :teachers, :reset_password_token, unique: true
-    add_index :teachers, :confirmation_token,   unique: true
-    # add_index :teachers, :unlock_token,         unique: true
+    add_index :students, :email,                unique: true
+    add_index :students, [:uid, :provider],     unique: true
+    add_index :students, :reset_password_token, unique: true
+    add_index :students, :confirmation_token,   unique: true
+    # add_index :students, :unlock_token,         unique: true
   end
 end
