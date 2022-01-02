@@ -121,6 +121,11 @@ ActiveRecord::Schema.define(version: 2022_01_02_133220) do
     t.string "nickname"
     t.string "image"
     t.string "email"
+    t.boolean "admin"
+    t.boolean "teacher"
+    t.string "introduction"
+    t.string "teacher_icon"
+    t.integer "student_id"
     t.json "tokens"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
