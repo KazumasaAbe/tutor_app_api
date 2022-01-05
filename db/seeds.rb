@@ -33,11 +33,12 @@ Teacher.create(email: 'admin@example.com',
                   teacher: false)
 end
 
-10.times do |n|
-  email = "teacher-#{n+1}@email.com"
-  password = "password"
-  Teacher.create!(email: email,
-                  password: password,
-                  password_confirmation: password,
-                  teacher: true)
-end
+# 重複のためコメントアウトしました（1/5槇）
+# 10.times do |n|
+#   email = "teacher-#{n+1}@email.com"
+#   password = "password"
+#   Teacher.create!(email: email,
+#                   password: password,
+#                   password_confirmation: password,
+#                   teacher: true)
+# end
