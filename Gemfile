@@ -20,6 +20,8 @@ gem 'devise' # 追加
 gem 'devise_token_auth' # 追加
 gem 'devise-i18n',        '1.9.4' # 追加
 
+gem 'active_model_serializers' # 追加
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
