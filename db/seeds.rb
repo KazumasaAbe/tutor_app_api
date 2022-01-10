@@ -20,3 +20,28 @@ end
                   password_confirmation: password,
                   teacher: true)
 end
+
+AcademicAbility.create(subject: '国語',
+                       score: 85,
+                       implementation_month: '2022-01-1',
+                       student_id: 1)
+
+AcademicAbility.create(subject: '算数',
+                       score: '65',
+                       implementation_month: '2022-01-1',
+                       student_id: 1)
+
+AcademicAbility.create(subject: '理科',
+                       score: '70',
+                       implementation_month: '2022-01-1',
+                       student_id: 1)
+
+AcademicAbility.create(subject: '英語',
+                       score: '90',
+                       implementation_month: '2022-01-1',
+                       student_id: 1)
+
+AcademicAbility.create(subject: '社会',
+                       score: '80',
+                       implementation_month: '2022-01-1',
+                       student_id: 1)
