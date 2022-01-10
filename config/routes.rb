@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       resources :academic_abilities, only:[:index]
       mount_devise_token_auth_for 'Student', at: 'student'
       mount_devise_token_auth_for 'Teacher', at: 'teacher'
-      end
+      get 'teachers', to: "teachers#teacher_index"
+    end
   end
 end
