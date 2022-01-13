@@ -52,3 +52,9 @@ end
   Subject.create!(subject: subject,
                   teacher_id: teacher_id)
 end
+
+
+Notice.create!(title: '新しい先生が加わりました!', text: '2021年より新しい先生が加わります!!教科は、「国語」「理科」を担当してもらいます。')
+Notice.create!(title: '新しい先生が加わりました!', text: '2021年より新しい先生が加わります!!教科は、「国語」「理科」を担当してもらいます。')
+Notice.create!(title: '新しい先生が加わりました!', text: '2021年より新しい先生が加わります!!教科は、「国語」「理科」を担当してもらいます。')
+Notice.create!(title: '新しい先生が加わりました!', text: '2021年より新しい先生が加わります!!教科は、「国語」「理科」を担当してもらいます。')
