@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       mount_devise_token_auth_for 'Teacher', at: 'teacher'
       get 'teachers', to: "teachers#teacher_index"
       resources :teachers, only:[:update, :destroy]
+      resources :students, only:[:index, :update, :destroy]
     end
   end
 end

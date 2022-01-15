@@ -1,0 +1,32 @@
+class Api::V1::StudentsController < ApplicationController
+
+  def index
+    students = Student.all
+    render json: students, status: 200
+  end
+
+  def update
+    student = student.find(params[:id])
+    if student.update(student_params)
+      render json: student, status: 200
+    else
+      render json: student, status: 500
+    end
+  end
+
+  def destroy
+    student = student.find(params[:id])
+    if student.destroy
+      render json: student, status: 200
+    else
+      render json: student, status: 500
+    end
+  end
+
+  private
+
+    def student_params
+      params.permit(:id, :name, :email, :post_code, :address, :birthday, :student_icon, :teacher_id)
+    end
+
+end
