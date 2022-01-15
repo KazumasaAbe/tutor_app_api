@@ -6,9 +6,17 @@ class Api::V1::TeachersController < ApplicationController
   end
 
   def update
-    # debugger
     teacher = Teacher.find(params[:id])
     if teacher.update(teacher_params)
+      render json: teacher, status: 200
+    else
+      render json: teacher, status: 500
+    end
+  end
+
+  def destroy
+    teacher = Teacher.find(params[:id])
+    if teacher.destroy
       render json: teacher, status: 200
     else
       render json: teacher, status: 500
