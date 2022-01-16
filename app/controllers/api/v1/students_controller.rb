@@ -1,12 +1,12 @@
 class Api::V1::StudentsController < ApplicationController
 
   def index
-    students = Student.all
+    students = Student.select(:id, :name, :email, :post_code, :address, :birthday, :student_icon, :teacher_id).order(:id)
     render json: students, status: 200
   end
 
   def update
-    student = student.find(params[:id])
+    student = Student.find(params[:id])
     if student.update(student_params)
       render json: student, status: 200
     else
@@ -15,7 +15,7 @@ class Api::V1::StudentsController < ApplicationController
   end
 
   def destroy
-    student = student.find(params[:id])
+    student = Student.find(params[:id])
     if student.destroy
       render json: student, status: 200
     else

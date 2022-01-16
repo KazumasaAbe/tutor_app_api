@@ -28,7 +28,7 @@ Teacher.create(email: 'admin@example.com',
   name = "生徒#{n}"
   email = "student-#{n+1}@email.com"
   password = "password"
-  post_code = 144-0047
+  post_code = "144-0047"
   address = "東京都大田区萩中"
   from = Time.parse("2008/01/01")
   to = Time.parse("2015/01/01")
