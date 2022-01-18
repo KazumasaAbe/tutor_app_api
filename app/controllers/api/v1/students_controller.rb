@@ -1,7 +1,7 @@
 class Api::V1::StudentsController < ApplicationController
 
   def index
-    students = Student.select(:id, :name, :email, :post_code, :address, :birthday, :student_icon, :teacher_id).order(:id)
+    students = Student.includes(:teachers).select(:id, :name, :email, :post_code, :address, :birthday, :student_icon, :teacher_id).order(:id)
     render json: students, status: 200
   end
 

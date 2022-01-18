@@ -26,7 +26,7 @@ class Api::V1::TeachersController < ApplicationController
   private
 
     def teacher_params
-      params.permit(:id, :name, :email, :introduction)
+      params.require(:teacher).permit(:id, :name, :email, :introduction, :teacher_icon, subjects_attributes: [:subject])
     end
 
 end

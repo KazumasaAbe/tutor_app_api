@@ -2,8 +2,9 @@
 
 class Teacher < ActiveRecord::Base
   has_many :subjects, dependent: :destroy
-  has_many :teacher_studnets
-  has_many :students, through: :teacher_studnets
+  accepts_nested_attributes_for :subjects, allow_destroy: true
+  has_many :teacher_students
+  has_many :students, through: :teacher_students
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
