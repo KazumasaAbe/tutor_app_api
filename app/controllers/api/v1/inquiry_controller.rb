@@ -3,7 +3,7 @@ class Api::V1::InquiryController < ApplicationController
   def create
     @inquiry = Inquiry.new(inquiry_params)
     if @inquiry.save
-      render json: "送信完了"
+      render json: "送信完了しました"
     else
       #debugger
       render json: @inquiry.errors, status: :unprocessable_entity
