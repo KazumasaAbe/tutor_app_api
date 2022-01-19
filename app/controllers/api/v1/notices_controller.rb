@@ -1,8 +1,10 @@
 class Api::V1::NoticesController < ApplicationController
   before_action :set_notice, only: [:show, :update, :destroy]
-  def index
-    notices = Notice.all
-    render json: notices.as_json(only: [:title, :text, :created_at])
+
+  def index  
+    notices = Notice.all.order("created_at DESC")
+    render json: notices.as_json(only: [:id,  :title, :text, :created_at])
+    # render json: notices
   end
 
   def create
@@ -35,7 +37,7 @@ class Api::V1::NoticesController < ApplicationController
 
     def notice_params
       # params.require(:notice).permit(:title, :text, :notice_image)
-      params.require(:notice).permit(:title, :text)
+      params.require(:notice).permit(:title, :text, :notice_image)
     end
 
 end
