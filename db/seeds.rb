@@ -5,19 +5,22 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-# table_names = %w(
-#   teachers
-# )
+table_names = %w(
+  teachers
+  students
+  subjects
+  academic_abilities
+)
 
-# table_names.each do |table_name|
-#   path = Rails.root.join("db/seeds/#{Rails.env}/#{table_name}.rb")
+table_names.each do |table_name|
+  path = Rails.root.join("db/seeds/#{Rails.env}/#{table_name}.rb")
 
 #   # ファイルが存在しない場合はdevelopmentディレクトリを読み込む
-#   path = path.sub(Rails.env, "development") unless File.exist?(path)
+  path = path.sub(Rails.env, "development") unless File.exist?(path)
 
-#   puts "#{table_name}..."
-#   require path
-# end
+  puts "#{table_name}..."
+  require path
+ end
 
 Teacher.create(email: 'admin@example.com',
                password: 'password',
