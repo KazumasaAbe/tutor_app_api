@@ -16,8 +16,11 @@ ActiveRecord::Schema.define(version: 2022_01_02_133220) do
   enable_extension "plpgsql"
 
   create_table "academic_abilities", force: :cascade do |t|
-    t.string "subject"
-    t.integer "score"
+    t.integer "national_language"
+    t.integer "arithmetic"
+    t.integer "science"
+    t.integer "english"
+    t.integer "society"
     t.date "implementation_month"
     t.integer "student_id"
     t.datetime "created_at", precision: 6, null: false
