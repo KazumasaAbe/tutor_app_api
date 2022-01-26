@@ -10,6 +10,7 @@ table_names = %w(
   students
   subjects
   academic_abilities
+  notices
 )
 
 table_names.each do |table_name|
