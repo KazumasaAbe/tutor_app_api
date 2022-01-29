@@ -7,9 +7,8 @@ class Api::V1::TeachersController < ApplicationController
 
   def update
     teacher = Teacher.find(params[:id])
-    # subject = Subject.find_by(params[:teacher_id])
-    # if subject.update(subject_params) && teacher.update(teacher_params)
-    if teacher.update(teacher_params)
+    subject = Subject.find(params[:id])
+    if subject.update(subject_params) && teacher.update(teacher_params)
       render json: teacher, status: 200
     else
       render json: teacher, status: 500
@@ -28,11 +27,11 @@ class Api::V1::TeachersController < ApplicationController
   private
 
     def teacher_params
-      params.require(:teacher).permit(:id, :name, :email, :introduction, :teacher_icon, subjects_attributes: [:id, :subject, :_destroy])
+      params.require(:teacher).permit(:id, :name, :email, :introduction, :teacher_icon)
     end
 
-    # def subject_params
-    #   params.permit(:id, :subject)
-    # end
+    def subject_params
+      params.permit(:subject)
+    end
 
 end
