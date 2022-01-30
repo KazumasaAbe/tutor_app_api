@@ -8,6 +8,7 @@
 table_names = %w(
   teachers
   students
+  teacher_students
   subjects
   academic_abilities
   notices
