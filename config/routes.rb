@@ -13,7 +13,10 @@ Rails.application.routes.draw do
       get 'teachers', to: "teachers#teacher_index"
       resources :teachers, only:[:update, :destroy]
       resources :students, only:[:index, :update, :destroy]
-      post 'inquiries', to: "inquiry#create"
+      resources :inquiries, only:[:index, :create, :update]
+      # get 'inquiries', to: "inquiry#index"
+      # post 'inquiries', to: "inquiry#create"
+      # patch 'inquiries', to: "inquiry#update"
     end
   end
 end
