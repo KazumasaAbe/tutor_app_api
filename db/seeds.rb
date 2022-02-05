@@ -11,6 +11,7 @@ table_names = %w(
   teacher_students
   subjects
   academic_abilities
+  notices
 )
 
 table_names.each do |table_name|
@@ -71,7 +72,7 @@ table_names.each do |table_name|
 # end
 
 
-Notice.create!(title: '新しい先生が加わりました!', text: '2021年より新しい先生が加わります!!教科は、「国語」「理科」を担当してもらいます。')
-Notice.create!(title: '新しい先生が加わりました!', text: '2021年より新しい先生が加わります!!教科は、「国語」「理科」を担当してもらいます。')
-Notice.create!(title: '新しい先生が加わりました!', text: '2021年より新しい先生が加わります!!教科は、「国語」「理科」を担当してもらいます。')
-Notice.create!(title: '新しい先生が加わりました!', text: '2021年より新しい先生が加わります!!教科は、「国語」「理科」を担当してもらいます。')
+# Notice.create!(title: '新しい先生が加わりました!', text: '2021年より新しい先生が加わります!!教科は、「国語」「理科」を担当してもらいます。')
+# Notice.create!(title: '新しい先生が加わりました!', text: '2021年より新しい先生が加わります!!教科は、「国語」「理科」を担当してもらいます。')
+# Notice.create!(title: '新しい先生が加わりました!', text: '2021年より新しい先生が加わります!!教科は、「国語」「理科」を担当してもらいます。')
+# Notice.create!(title: '新しい先生が加わりました!', text: '2021年より新しい先生が加わります!!教科は、「国語」「理科」を担当してもらいます。')
