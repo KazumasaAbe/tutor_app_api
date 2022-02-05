@@ -9,13 +9,15 @@ class Api::V1::TeachersController < ApplicationController
   def update
     teacher = Teacher.find(params[:id])
     subject = Subject.find(params[:id])
-    # debugger
+    debugger
     if subject.update(subject_params) && teacher.update(teacher_params)
       debugger
       render json: teacher, status: 200
     else
       render json: teacher, status: 500
     end
+
+    
   end
 
   def destroy
@@ -34,7 +36,7 @@ class Api::V1::TeachersController < ApplicationController
     end
 
     def subject_params
-      params.permit(subject: [])
+      params.permit({subject: []})
     end
 
 end
