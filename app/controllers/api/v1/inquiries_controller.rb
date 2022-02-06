@@ -1,9 +1,8 @@
-class Api::V1::InquiryController < ApplicationController
+class Api::V1::InquiriesController < ApplicationController
   def index
-    @inquiries = Inquiry.new
-    @inquiries = Inquiry.all
-    # debugger
-    render json: @inquiries
+    inquiries = Inquiry.new
+    inquiries = Inquiry.all
+    render json: inquiries
   end
 
   def create
@@ -17,18 +16,14 @@ class Api::V1::InquiryController < ApplicationController
   end
 
   def update
-    debugger
-    if params[:id]
+    if params[:read_at]
       inquiry = Inquiry.find(params[:id])
-      # debugger
-      @inquiry.update(inquiry_params)
-      # debugger
-      @inquiry.save
-      render json:@inquiry
+      if inquiry.read_at.blank?
+        inquiry.update(read_at: params[:read_at])
+        inquiry.save
+        render json: inquiry
+      end
     end
-
-    
-
   end
 
   private
