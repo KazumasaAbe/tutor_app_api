@@ -1,8 +1,7 @@
 class Api::V1::StudentsController < ApplicationController
 
   def index
-    # students = Student.left_joins(:teachers).select('students.*, teachers.name as teacher_name, teachers.teacher_icon').order(:id)
-    students = Student.left_joins(:teachers).select('students.*, teachers.teacher_icon').order(:id)
+    students = Student.left_joins(:teachers).select('students.*, teachers.name as teacher_name, teachers.teacher_icon').order(:id)
     render json: students, status: 200
   end
 
