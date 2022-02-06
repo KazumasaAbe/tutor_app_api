@@ -12,6 +12,7 @@ table_names = %w(
   subjects
   academic_abilities
   notices
+  inquiries
 )
 
 table_names.each do |table_name|
@@ -76,3 +77,14 @@ table_names.each do |table_name|
 # Notice.create!(title: '新しい先生が加わりました!', text: '2021年より新しい先生が加わります!!教科は、「国語」「理科」を担当してもらいます。')
 # Notice.create!(title: '新しい先生が加わりました!', text: '2021年より新しい先生が加わります!!教科は、「国語」「理科」を担当してもらいます。')
 # Notice.create!(title: '新しい先生が加わりました!', text: '2021年より新しい先生が加わります!!教科は、「国語」「理科」を担当してもらいます。')
+
+
+# 5.times do |n|
+#   name = "sample#{n+1}"
+#   email = "sample#{n+1}@email.com"
+#   content = "お試しで何回か来てもらうことは可能ですか？"
+#   Inquiry.create!(name: name,
+#                   email: email,
+#                   content: content
+#                 )
+# end
