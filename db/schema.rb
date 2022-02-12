@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 2022_01_23_023041) do
     t.string "room_name"
     t.integer "teacher_id"
     t.integer "student_id"
+    t.integer "room_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

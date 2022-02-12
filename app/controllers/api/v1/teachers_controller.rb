@@ -5,6 +5,12 @@ class Api::V1::TeachersController < ApplicationController
     render json: teachers, status: 200
   end
 
+  def show
+    @teacher = Teacher.find(params[:id])
+    render json: @teacher
+  end
+
+
   def update
     teacher = Teacher.find(params[:id])
     subject = Subject.find(params[:id])

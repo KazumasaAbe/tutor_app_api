@@ -11,6 +11,8 @@ table_names = %w(
   teacher_students
   subjects
   academic_abilities
+  rooms
+  messages
 )
 
 table_names.each do |table_name|
