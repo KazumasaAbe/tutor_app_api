@@ -10,7 +10,8 @@ class Api::V1::NoticesController < ApplicationController
   def create
     notice = Notice.new(notice_params)
     if notice.save
-      render json: { status: 'SUCCESS', data: notice }
+      # render json: { status: 'SUCCESS', data: notice }
+      render json: notice 
     else
       render json: { status: 'ERROR', data: notice.errors }
     end
