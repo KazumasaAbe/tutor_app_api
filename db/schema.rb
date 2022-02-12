@@ -10,14 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_02_133220) do
+ActiveRecord::Schema.define(version: 2022_01_23_023041) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "academic_abilities", force: :cascade do |t|
-    t.string "subject"
-    t.integer "score"
+    t.integer "national_language"
+    t.integer "arithmetic"
+    t.integer "science"
+    t.integer "english"
+    t.integer "society"
     t.date "implementation_month"
     t.integer "student_id"
     t.datetime "created_at", precision: 6, null: false
@@ -93,16 +96,19 @@ ActiveRecord::Schema.define(version: 2022_01_02_133220) do
 
   create_table "subjects", force: :cascade do |t|
     t.string "subject"
-    t.integer "teacher_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "teacher_id"
+    t.index ["teacher_id"], name: "index_subjects_on_teacher_id"
   end
 
   create_table "teacher_students", force: :cascade do |t|
-    t.integer "teacher_id"
-    t.integer "student_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "teacher_id"
+    t.integer "student_id"
+    t.index ["student_id"], name: "index_teacher_students_on_student_id"
+    t.index ["teacher_id"], name: "index_teacher_students_on_teacher_id"
   end
 
   create_table "teachers", force: :cascade do |t|
@@ -135,4 +141,7 @@ ActiveRecord::Schema.define(version: 2022_01_02_133220) do
     t.index ["uid", "provider"], name: "index_teachers_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "subjects", "teachers"
+  add_foreign_key "teacher_students", "students"
+  add_foreign_key "teacher_students", "teachers"
 end
