@@ -6,6 +6,7 @@ class CreateMessages < ActiveRecord::Migration[6.0]
       t.string :room_name
       t.integer :teacher_id
       t.integer :student_id
+      t.integer :room_id
 
       t.timestamps
     end

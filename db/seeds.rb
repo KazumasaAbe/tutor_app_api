@@ -13,6 +13,8 @@ table_names = %w(
   academic_abilities
   notices
   inquiries
+  rooms
+  messages
 )
 
 table_names.each do |table_name|
