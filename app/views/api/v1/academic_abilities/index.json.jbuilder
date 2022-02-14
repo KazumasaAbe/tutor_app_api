@@ -5,4 +5,5 @@ json.array! @abilities,
   :english,
   :society,
   :implementation_month,
-  :student_id
+  :student_id,
+  :id
