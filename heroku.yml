@@ -5,8 +5,8 @@
 #       as: DATABASE
 build:
   docker:
-    web: Dockerfile
+    api: Dockerfile
   config:
     WORKDIR: app
 run:
-  web: bundle exec puma -C config/puma.rb
+  api: bundle exec puma -C config/puma.rb
