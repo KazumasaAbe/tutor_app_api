@@ -13,7 +13,6 @@ WORKDIR ${HOME}
 COPY Gemfile* ./
 
 RUN apk update && \
-  apk add vim && \
   apk upgrade && \
   apk add --no-cache ${RUNTIME_PACKAGES} && \
   apk add --virtual build-dependencies --no-cache ${DEV_PACKAGES} && \
