@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       resources :notices
       resources :messages, only:[:index, :show, :create]
       resources :rooms, only:[:show, :create]
-      resources :academic_abilities, only:[:index, :create, :update, :destroy]
+      resources :academic_abilities, only:[:index, :create, :update, :destroy, :show]
       mount_devise_token_auth_for 'Student', at: 'student'
       mount_devise_token_auth_for 'Teacher', at: 'teacher'
 
