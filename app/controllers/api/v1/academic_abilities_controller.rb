@@ -4,6 +4,12 @@ class Api::V1::AcademicAbilitiesController < ApplicationController
     @abilities = AcademicAbility.all
   end
 
+  def show
+    @abilities = AcademicAbility.where(student_id: params[:id])
+    render json: @abilities
+  end
+
+
   def create
     ability = AcademicAbility.new(ability_params)
     if ability.save
