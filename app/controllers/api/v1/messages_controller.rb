@@ -13,7 +13,7 @@ class Api::V1::MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
     if @message.save
-    ActionCable.server.broadcast "messages_#{params[:room_id]}", message
+    # ActionCable.server.broadcast "messages_#{params[:room_id]}", message
     render json: {}
     else
       render json: @message.errors, status: 500
