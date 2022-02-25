@@ -9,7 +9,6 @@ class Api::V1::AcademicAbilitiesController < ApplicationController
     render json: @abilities
   end
 
-
   def create
     ability = AcademicAbility.new(ability_params)
     if ability.save
