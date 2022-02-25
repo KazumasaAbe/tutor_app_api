@@ -6,8 +6,13 @@ class Api::V1::MessagesController < ApplicationController
 
   def show
     room = Room.find_by(student_id: params[:id])
-    @messages = room.messages
-    render json: @messages
+    message_check = Message.where(student_id: params[:id])
+    if message_check.present?
+      @messages = room.messages
+      render json: @messages
+    else
+      render json: []
+    end
   end
 
   def create
@@ -26,16 +31,16 @@ class Api::V1::MessagesController < ApplicationController
     params.permit(:speaker, :content, :room_name, :teacher_id, :student_id, :room_id)
   end
 
-  def message
-    {
-      id: params[:id],
-      speaker: params[:speaker],
-      content: params[:content],
-      room_name: params[:room_name],
-      teacher_id: params[:teacher_id],
-      student_id: params[:student_id],
-      room_id: params[:room_id]
-    }
-  end
+  # def message
+  #   {
+  #     id: params[:id],
+  #     speaker: params[:speaker],
+  #     content: params[:content],
+  #     room_name: params[:room_name],
+  #     teacher_id: params[:teacher_id],
+  #     student_id: params[:student_id],
+  #     room_id: params[:room_id]
+  #   }
+  # end
 
 end
