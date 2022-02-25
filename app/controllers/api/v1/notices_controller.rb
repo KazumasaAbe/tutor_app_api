@@ -3,7 +3,7 @@ class Api::V1::NoticesController < ApplicationController
 
   def index  
     notices = Notice.all.order("created_at DESC")
-    render json: notices.as_json(only: [:id,  :title, :text, :created_at])
+    render json: notices.as_json(only: [:id,  :title, :text, :notice_image, :created_at])
     # render json: notices
   end
 
