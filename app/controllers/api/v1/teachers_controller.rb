@@ -13,16 +13,19 @@ class Api::V1::TeachersController < ApplicationController
 
   def update
     teacher = Teacher.find(params[:id])
-    subject = Subject.find(params[:id])
-    if teacher.update(teacher_params) && subject.update(subject_params)
-      # render json: teacher, status: 200
-      # byebug
-      render json: teacher.to_json(include: :subjects), status: 200
-    else
-      render json: teacher, status: 500
-    end
+    subject = Subject.where(teacher_id: params[:id])
 
-    
+      if subject.blank?
+        subject = Subject.new(teacher_id: params[:id])
+      else
+        subject = Subject.find_by(teacher_id: params[:id])
+      end
+
+      if teacher.update(teacher_params) && subject.update(subject_params)
+        render json: teacher.to_json(include: :subjects), status: 200
+      else
+        render json: teacher, status: 500
+      end
   end
 
   def destroy
