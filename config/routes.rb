@@ -4,7 +4,6 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :hello, only:[:index]
       resources :notices
       resources :messages, only:[:index, :show, :create]
       resources :rooms, only:[:show, :create]
