@@ -2,12 +2,12 @@ class Api::V1::TeachersController < ApplicationController
   
   def teacher_index
     teachers = Teacher.where(admin: nil).eager_load(:subjects).order(:id)
-    render json: teachers.to_json(include:[:subjects])
+    render json: teachers.to_json(include:[:subjects]
   end
 
   def show
     @teacher = Teacher.find(params[:id])
-    render json: @teacher
+    render json: @teacher, methods: [:teacher_icon_url]
   end
 
 
