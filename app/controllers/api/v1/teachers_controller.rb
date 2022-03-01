@@ -2,7 +2,7 @@ class Api::V1::TeachersController < ApplicationController
   
   def teacher_index
     teachers = Teacher.where(admin: nil).eager_load(:subjects).order(:id)
-    render json: teachers.to_json(include:[:subjects]
+    render json: teachers.to_json(include:[:subjects])
   end
 
   def show
