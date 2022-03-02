@@ -37,7 +37,7 @@ class DeviseTokenAuthCreateTeachers < ActiveRecord::Migration[6.0]
       t.boolean :admin
       t.boolean :teacher
       t.string :introduction
-      # t.string :teacher_icon
+      t.string :teacher_icon
       t.integer :student_id
 
 

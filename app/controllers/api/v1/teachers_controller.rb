@@ -5,6 +5,7 @@ class Api::V1::TeachersController < ApplicationController
     render json: teachers.to_json(include:[:subjects])
   end
 
+
   def show
     @teacher = Teacher.find(params[:id])
     render json: @teacher

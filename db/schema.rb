@@ -152,6 +152,7 @@ ActiveRecord::Schema.define(version: 2022_03_01_022835) do
     t.boolean "admin"
     t.boolean "teacher"
     t.string "introduction"
+    t.string "teacher_icon"
     t.integer "student_id"
     t.json "tokens"
     t.datetime "created_at", precision: 6, null: false
