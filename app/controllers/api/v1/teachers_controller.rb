@@ -2,13 +2,13 @@ class Api::V1::TeachersController < ApplicationController
   
   def teacher_index
     teachers = Teacher.where(admin: nil).eager_load(:subjects).order(:id)
-    render json: teachers.to_json(include:[:subjects], methods: [:teacher_icon_url])
+    render json: teachers.to_json(include: [:subjects])
   end
 
 
   def show
     @teacher = Teacher.find(params[:id])
-    render json: @teacher, methods: [:teacher_icon_url]
+    render json: @teacher
   end
 
 
@@ -21,7 +21,6 @@ class Api::V1::TeachersController < ApplicationController
       else
         subject = Subject.find_by(teacher_id: params[:id])
       end
-debugger
       if teacher.update(teacher_params) && subject.update(subject_params)
         render json: teacher.to_json(include: :subjects), status: 200
       else
