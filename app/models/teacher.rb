@@ -13,7 +13,7 @@ class Teacher < ActiveRecord::Base
          :recoverable, :rememberable, :validatable
 
   def teacher_icon_url
-    teacher_icon.attached? ? teacher_icon : nil
+    teacher_icon.attached? ? url_for(teacher_icon) : nil
   end
       
   include DeviseTokenAuth::Concerns::User
