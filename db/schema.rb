@@ -105,7 +105,6 @@ ActiveRecord::Schema.define(version: 2022_03_01_022835) do
     t.string "post_code"
     t.string "address"
     t.date "birthday"
-    t.string "student_icon"
     t.integer "teacher_id"
     t.json "tokens"
     t.datetime "created_at", precision: 6, null: false
