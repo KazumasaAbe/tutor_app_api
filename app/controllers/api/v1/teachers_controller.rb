@@ -2,25 +2,29 @@ class Api::V1::TeachersController < ApplicationController
   
   def teacher_index
     teachers = Teacher.where(admin: nil).eager_load(:subjects).order(:id)
-    render json: teachers.to_json(include:[:subjects])
+    render json: teachers.to_json(include:[:subjects], methods: [:teacher_icon_url])
   end
+
 
   def show
     @teacher = Teacher.find(params[:id])
-    render json: @teacher
+    render json: @teacher, methods: [:teacher_icon_url]
   end
 
 
   def update
     teacher = Teacher.find(params[:id])
-    subject = Subject.find(params[:id])
-    if teacher.update(teacher_params) && subject.update(subject_params)
-      render json: teacher, status: 200
-    else
-      render json: teacher, status: 500
-    end
-
-    
+    subject = Subject.where(teacher_id: params[:id])
+      if subject.blank?
+        subject = Subject.new(teacher_id: params[:id])
+      else
+        subject = Subject.find_by(teacher_id: params[:id])
+      end
+      if teacher.update(teacher_params) && subject.update(subject_params)
+        render json: teacher.to_json(include: :subjects, methods: [:teacher_icon_url]), status: 200
+      else
+        render json: teacher, status: 500
+      end
   end
 
   def destroy
@@ -39,11 +43,13 @@ class Api::V1::TeachersController < ApplicationController
     end
 
     def subject_params
-      if params.require(:subjects)[0].present?
-        params.require(:subjects)[0].permit({ subject: [] })
-      else
-        params.require(:subjects).permit({ subject: [] })
-      end
+      params.permit(subject: [])
+      # params.require(:subjects)[0].permit({ subject: [] })
+      # if params.require(:subjects)[0].present?
+      #   params.require(:subjects)[0].permit({ subjects: [] })
+      # else
+      #   params.require(:subjects).permit({ subjects: [] })
+      # end
     end
 
 end

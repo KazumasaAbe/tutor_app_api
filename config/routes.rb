@@ -4,11 +4,10 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :hello, only:[:index]
       resources :notices
       resources :messages, only:[:index, :show, :create]
-      resources :rooms, only:[:show]
-      resources :academic_abilities, only:[:index, :create, :update, :destroy]
+      resources :rooms, only:[:show, :create]
+      resources :academic_abilities, only:[:index, :create, :update, :destroy, :show]
       mount_devise_token_auth_for 'Student', at: 'student'
       mount_devise_token_auth_for 'Teacher', at: 'teacher'
 
@@ -16,9 +15,6 @@ Rails.application.routes.draw do
       resources :teachers, only:[:update, :destroy, :show]
       resources :students, only:[:index, :update, :destroy]
       resources :inquiries, only:[:index, :create, :update]
-      # get 'inquiries', to: "inquiry#index"
-      # post 'inquiries', to: "inquiry#create"
-      # patch 'inquiries', to: "inquiry#update"
     end
   end
 end
