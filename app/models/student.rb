@@ -13,6 +13,7 @@ class Student < ActiveRecord::Base
          :recoverable, :rememberable, :validatable
   include DeviseTokenAuth::Concerns::User
   has_many :messages, through: :rooms
+  validates :teacher_id, presence: true
 
   def student_icon_url
     student_icon.attached? ? url_for(student_icon) : nil
